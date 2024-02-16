@@ -1,0 +1,11 @@
+﻿@using Solution.Models
+@model AlertModel
+
+@if (Model != null)
+{
+    <div class="alert alert-@(Model.Type.ToString().ToLower()) alert-dismissible fade show" role="alert">
+        @(Model.Message)
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}

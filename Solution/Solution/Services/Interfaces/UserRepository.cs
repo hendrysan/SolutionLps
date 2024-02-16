@@ -28,13 +28,9 @@ namespace Solution.Services.Interfaces
                     return response;
                 }
 
-                var update = await _context.MasterUsers.FindAsync(user.Id);
-
-                _context.MasterUsers.Update(update);
-                await _context.SaveChangesAsync();
-
                 response.StatusCode = HttpStatusCode.OK;
                 response.Message = "Login successful";
+                response.MasterUserModel = user;
 
 
             }

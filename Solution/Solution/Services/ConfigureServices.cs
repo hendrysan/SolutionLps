@@ -11,6 +11,7 @@ namespace Solution.Services
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<ITokenRepository, TokenRepository>();
             return services;
         }
     }

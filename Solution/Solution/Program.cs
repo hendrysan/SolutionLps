@@ -18,10 +18,21 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.Use(async (context, next) =>
+{
+    await next();
+    if (context.Response.StatusCode == 404)
+    {
+        context.Request.Path = "/404";
+        await next();
+    }
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 
